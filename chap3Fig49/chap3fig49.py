@@ -1,7 +1,7 @@
 TAILLE=500
 from math import *
 
-#Comme son nom l'indique, découpes pour la figure 48 chapitre 3 page 37
+#Comme son nom l'indique, découpes pour la figure 49 chapitre 3 page 37
 
 # Taille du coté d'un carré élémentaire
 cote=50
@@ -22,7 +22,7 @@ def debut(c=TAILLE):
     entete="<svg viewBox=\"0 0 "+str(2*c)+" "+str(2*c)+"\" xmlns=\"http://www.w3.org/2000/svg\">\n"
     pied="</svg>\n"
     # Le nom du fichier SVG, 
-    image=open("chapitre8Figure49.svg","w")
+    image=open("chapitre3Figure49.svg","w")
     image.write(entete)
     return image
 
@@ -75,11 +75,12 @@ if __name__=="__main__":
     decalx+=ep
     decaly=ep
     image.write(rectangle(largeur=grandCote,hauteur=grandCote,rx=0,ry=0,couleur="blue"))
+   
 
     # toutes les lignes
     image.write(ligne((0*a,1*a),(2*a,0*a)))
-    image.write(ligne((2*a,0*a),(3*a,1*a)))
-    image.write(ligne((3*a,1*a),(7*a,0*a)))
+    image.write(ligne((2*a,0*a),(2*a,2*a)))
+    image.write(ligne((2*a,2*a),(cote+2*a,0*a)))
     
     fin(image)
 
