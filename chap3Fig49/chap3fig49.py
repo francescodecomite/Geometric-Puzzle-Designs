@@ -14,8 +14,14 @@ ry=20
 decalx=0 # decalage du dessin pour tenir dans la feuille
 decaly=0
 #Dimensions de la boite.
-grandCote=12/5*sqrt(5)*cote
-a=cote/sqrt(5)
+
+u=cote/sqrt(5)
+v=2*u
+x=cote*sqrt(5)
+grandCote=(v+u+2*x)
+alpha=atan(1/2)
+sinus=sin(alpha)
+cosinus=cos(alpha)
 
 # Entête du fichier SVG.
 def debut(c=TAILLE):
@@ -78,9 +84,32 @@ if __name__=="__main__":
    
 
     # toutes les lignes
-    image.write(ligne((0*a,1*a),(2*a,0*a)))
-    image.write(ligne((2*a,0*a),(2*a,2*a)))
-    image.write(ligne((2*a,2*a),(cote+2*a,0*a)))
+    # Ligne 'horizontale' du haut
+    image.write(ligne((0,u),(v,0)))
+    image.write(ligne((v,0),(v+u,v)))
+    image.write(ligne((v+u,v),(v+x,0)))
+    image.write(ligne((v+x,0),(v+x+u,v)))
+    image.write(ligne((v+x+u,v),(v+2*x,0)))
+    image.write(ligne((v+2*x,0),(v+u+2*x,v)))
+    # Ligne 'verticale' de gauche
+    image.write(ligne((0,u),(v*cosinus,x)))
+    image.write(ligne((v*cosinus,x),(0,x+u)))
+    image.write(ligne((0,x+u),(v*cosinus,2*x)))
+    image.write(ligne((v*cosinus,2*x),(0,2*x+u)))
+    image.write(ligne((0,2*x+u),(u,u+v+2*x)))
+    # Ligne 'horizontale' du bas
+    image.write(ligne((u,u+v+2*x),(x,u+v+2*x-2*cote*sinus)))
+    image.write(ligne((x,u+v+2*x-2*cote*sinus),(x+u,u+v+2*x)))
+    image.write(ligne((x+u,u+v+2*x),(u+x+2*cote*cosinus,u+v+2*x-2*cote*sinus)))
+    image.write(ligne((u+x+2*cote*cosinus,u+v+2*x-2*cote*sinus),(2*x+u,u+v+2*x)))
+    image.write(ligne((2*x+u,u+v+2*x),(u+v+2*x,2*x+v)))
+    # Ligne verticale de droite
+    image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-2*cote*sinus,v+x+cote*sinus)))
+    image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-3*cote*sinus,2*x+v-3*cote*cosinus)))
+    #image.write(ligne((u+v+2*x-2*cote*sinus,v+x+cote*sinus),(u+v+2*x,x+v)))
+    image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-2*cote*sinus,v+x+cote*sinus)))
+    image.write(ligne((u+v+2*x-2*cote*sinus,v+cote*sinus),(v+u+2*x,v)))
+    # Deuxieme ligne verticale à partir de la gauche
     
     fin(image)
 
