@@ -100,10 +100,13 @@ if __name__=="__main__":
     image.write(ligne((v*cosinus,2*x),(0,2*x+u)))
     image.write(ligne((0,2*x+u),(u,u+v+2*x)))
     # Ligne 'horizontale' du bas
-    #image.write(ligne((u,u+v+2*x),(x,u+v+2*x-2*cote*sinus),couleur="red"))
+
     image.write(ligne((u,u+v+2*x),(u+v+2*x-4*cote*sinus,u+4*cote*cosinus)))
-    image.write(ligne((u+v+2*x-4*cote*sinus,u+4*cote*cosinus),(u+v+2*x-4*cote*sinus-2*u,u+4*cote*cosinus-2*v)))
-    image.write(ligne((u+v+2*x-4*cote*sinus-2*u,u+4*cote*cosinus-2*v), (u+v+2*x-4*cote*sinus-2*u+v,u+4*cote*cosinus-2*v-u ),couleur="green"))
+    #image.write(ligne((u+v+2*x-4*cote*sinus,u+4*cote*cosinus),(u+v+2*x-4*cote*sinus-2*u,u+4*cote*cosinus-2*v))) 
+    image.write(ligne((u+v+2*x-4*cote*sinus,u+4*cote*cosinus),(v+2*x-4*cote*sinus-u,u+4*cote*cosinus-2*v)))
+    
+    #image.write(ligne((u+v+2*x-4*cote*sinus-2*u,u+4*cote*cosinus-2*v), (u+v+2*x-4*cote*sinus-2*u+v,u+4*cote*cosinus-2*v-u ))) 
+    image.write(ligne((v+2*x-4*cote*sinus-u,u+4*cote*cosinus-2*v), (2*v+2*x-4*cote*sinus-u,4*cote*cosinus-2*v )))
     image.write(ligne((x,u+v+2*x-2*cote*sinus),(x+u,u+v+2*x)))
     image.write(ligne((x+u,u+v+2*x),(u+x+2*cote*cosinus,u+v+2*x-2*cote*sinus)))
     image.write(ligne((u+x+2*cote*cosinus,u+v+2*x-2*cote*sinus),(2*x+u,u+v+2*x)))
@@ -118,8 +121,8 @@ if __name__=="__main__":
     image.write(ligne((v+2*x+u,v+x),(2*x+u,u+v)))
     # Les lignes interieures
     image.write(ligne((x,u),(u+x,u+v)))
-    image.write(ligne((u+x,u+v),(u+x-v,u+v+u)))
-    image.write(ligne((u+x-v,u+v+u),(x,x+u)))
+    image.write(ligne((u+x,u+v),(u+x-v,2*u+v)))
+    image.write(ligne((u+x-v,2*u+v),(x,x+u)))
     A=v*cosinus/2
     B=(3*x+u)/2
     image.write(ligne((x,x+u), (A,B)))
