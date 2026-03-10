@@ -89,6 +89,7 @@ if __name__=="__main__":
     image.write(ligne((v,0),(v+u,v)))
     image.write(ligne((v+u,v),(v+x,0)))
     image.write(ligne((v+x,0),(v+x+u,v)))
+    image.write(ligne((v+x,0),(v+x+2*u,2*v)))
     image.write(ligne((v+x+u,v),(v+2*x,0)))
     image.write(ligne((v+2*x,0),(v+u+2*x,v)))
     # Ligne 'verticale' de gauche
@@ -107,9 +108,15 @@ if __name__=="__main__":
     image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-2*cote*sinus,v+x+cote*sinus)))
     image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-3*cote*sinus,2*x+v-3*cote*cosinus)))
     #image.write(ligne((u+v+2*x-2*cote*sinus,v+x+cote*sinus),(u+v+2*x,x+v)))
-    image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-2*cote*sinus,v+x+cote*sinus)))
+    #image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-2*cote*sinus,v+x+cote*sinus)))
     image.write(ligne((u+v+2*x-2*cote*sinus,v+cote*sinus),(v+u+2*x,v)))
-    # Deuxieme ligne verticale à partir de la gauche
+    image.write(ligne((2*x+u,v+x+u),(v+2*x+u,v+x)))
+    image.write(ligne((v+2*x+u,v+x),(2*x+u,u+v)))
+    # Les lignes interieures
+    image.write(ligne((x,u),(u+x,u+v)))
+    image.write(ligne((u+x,u+v),(u+x-v,u+v+u)))
+    image.write(ligne((u+x-v,u+v+u),(x,x+u)))
+    image.write(ligne((x,x+u), (x-2*v,x+3*u),couleur="red"))
     
     fin(image)
 
