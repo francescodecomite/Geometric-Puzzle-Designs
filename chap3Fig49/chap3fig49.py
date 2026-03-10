@@ -93,13 +93,17 @@ if __name__=="__main__":
     image.write(ligne((v+x+u,v),(v+2*x,0)))
     image.write(ligne((v+2*x,0),(v+u+2*x,v)))
     # Ligne 'verticale' de gauche
-    image.write(ligne((0,u),(v*cosinus,x)))
-    image.write(ligne((v*cosinus,x),(0,x+u)))
+    image.write(ligne((0,u),(v,x)))
+
+    image.write(ligne((v,x),(0,x+u)))
     image.write(ligne((0,x+u),(v*cosinus,2*x)))
     image.write(ligne((v*cosinus,2*x),(0,2*x+u)))
     image.write(ligne((0,2*x+u),(u,u+v+2*x)))
     # Ligne 'horizontale' du bas
-    image.write(ligne((u,u+v+2*x),(x,u+v+2*x-2*cote*sinus)))
+    #image.write(ligne((u,u+v+2*x),(x,u+v+2*x-2*cote*sinus),couleur="red"))
+    image.write(ligne((u,u+v+2*x),(u+v+2*x-4*cote*sinus,u+4*cote*cosinus)))
+    image.write(ligne((u+v+2*x-4*cote*sinus,u+4*cote*cosinus),(u+v+2*x-4*cote*sinus-2*u,u+4*cote*cosinus-2*v)))
+    image.write(ligne((u+v+2*x-4*cote*sinus-2*u,u+4*cote*cosinus-2*v), (u+v+2*x-4*cote*sinus-2*u+v,u+4*cote*cosinus-2*v-u ),couleur="green"))
     image.write(ligne((x,u+v+2*x-2*cote*sinus),(x+u,u+v+2*x)))
     image.write(ligne((x+u,u+v+2*x),(u+x+2*cote*cosinus,u+v+2*x-2*cote*sinus)))
     image.write(ligne((u+x+2*cote*cosinus,u+v+2*x-2*cote*sinus),(2*x+u,u+v+2*x)))
@@ -107,17 +111,22 @@ if __name__=="__main__":
     # Ligne verticale de droite
     image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-2*cote*sinus,v+x+cote*sinus)))
     image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-3*cote*sinus,2*x+v-3*cote*cosinus)))
-    #image.write(ligne((u+v+2*x-2*cote*sinus,v+x+cote*sinus),(u+v+2*x,x+v)))
-    #image.write(ligne((u+v+2*x,2*x+v),(u+v+2*x-2*cote*sinus,v+x+cote*sinus)))
     image.write(ligne((u+v+2*x-2*cote*sinus,v+cote*sinus),(v+u+2*x,v)))
     image.write(ligne((2*x+u,v+x+u),(v+2*x+u,v+x)))
+    
+    
     image.write(ligne((v+2*x+u,v+x),(2*x+u,u+v)))
     # Les lignes interieures
     image.write(ligne((x,u),(u+x,u+v)))
     image.write(ligne((u+x,u+v),(u+x-v,u+v+u)))
     image.write(ligne((u+x-v,u+v+u),(x,x+u)))
-    image.write(ligne((x,x+u), (x-2*v,x+3*u),couleur="red"))
-    
+    A=v*cosinus/2
+    B=(3*x+u)/2
+    image.write(ligne((x,x+u), (A,B)))
+    image.write(ligne(((x+A)/2,(x+u+B)/2),(4*cote*sqrt(5)/5,2*x+u-2*cote*sqrt(5)/5)))
+    image.write(ligne((4*cote*sqrt(5)/5,2*x+u-2*cote*sqrt(5)/5),(2*x+u-u,u+v+x-v,5)))
+   
+   
     fin(image)
 
     #image.write(ligne((0*cote,0*cote),(0*cote,3*cote)))
