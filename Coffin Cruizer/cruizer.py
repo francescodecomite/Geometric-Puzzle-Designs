@@ -45,12 +45,12 @@ if __name__=="__main__":
     image=debut(c=TAILLE)
     #bord exterieur (bords arrondis)
 
-    image.write(rectangle(largeur=48+2*ep,hauteur=31+2*ep,rx=rx,ry=ry,couleur="green"))
+    image.write(rectangle(largeur=480+2*ep,hauteur=310+2*ep,rx=rx,ry=ry,couleur="green"))
    
     # rectangle interieur (bords droits)
     decalx+=ep
     decaly=ep
-    image.write(rectangle(largeur=48,hauteur=31,rx=0,ry=0,couleur="blue"))
+    image.write(rectangle(largeur=480,hauteur=310,rx=0,ry=0,couleur="blue"))
    
 
    
