@@ -55,11 +55,16 @@ if __name__=="__main__":
     image.write(rectangle(largeur=480,hauteur=310,rx=0,ry=0,couleur="blue"))
     A=155.14*sin(pi/6)
     B=310-A
-    P1=(271.118*cos(pi/6),310-271.118*sin(pi/6))
+    P1=(271.118*sin(pi/6),310-271.118*cos(pi/6))
     P2=(480-271.118*cos(pi/6),271.118*sin(pi/6))
     image.write(ligne((0,310),P1))
     image.write(ligne((480,0),P2))
     image.write(ligne((0,A),(155.14*cos(pi/6),0)))
+    u=200.982*cos(pi/3)
+    v=155.14*cos(pi/6)
+    w=200.982*sin(pi/3)
+    P3=(480-u-v,310-w)
+    image.write(ligne(P3,(480-v,310)))
     
    
     fin(image)
