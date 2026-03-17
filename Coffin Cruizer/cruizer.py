@@ -5,7 +5,7 @@ from math import *
 
 
 # Largeur du tour de la boite
-ep=25
+ep=50
 # valeur de l'arrondi des rectangles
 rx=20
 ry=20
@@ -14,6 +14,8 @@ decalx=0 # decalage du dessin pour tenir dans la feuille
 decaly=0
 #Dimensions de la boite.
 
+LARGEUR=480
+HAUTEUR=310
 
 # Entête du fichier SVG.
 def debut(c=TAILLE):
@@ -45,12 +47,22 @@ if __name__=="__main__":
     image=debut(c=TAILLE)
     #bord exterieur (bords arrondis)
 
-    image.write(rectangle(largeur=480+2*ep,hauteur=310+2*ep,rx=rx,ry=ry,couleur="green"))
+    image.write(rectangle(largeur=LARGEUR+2*ep,hauteur=HAUTEUR+2*ep,rx=rx,ry=ry,couleur="green"))
    
     # rectangle interieur (bords droits)
     decalx+=ep
     decaly=ep
-    image.write(rectangle(largeur=480,hauteur=310,rx=0,ry=0,couleur="blue"))
+    image.write(rectangle(largeur=LARGEUR,hauteur=HAUTEUR,rx=0,ry=0,couleur="blue"))
+    # Ligne en haut à gauche
+    A=155.14*sin(pi/6)
+    B=155.14*cos(pi/6)
+    image.write(ligne((0,A),(B,0)))
+    #image.write(ligne((LARGEUR,HAUTEUR),(0,0)))
+    image.write(ligne((LARGEUR-B,HAUTEUR),(LARGEUR,HAUTEUR-A)))
+    
+    image.write(ligne((0,HAUTEUR),(271.118*cos(pi/6),HAUTEUR-271.118*sin(pi/6))))
+    image.write(ligne((LARGEUR,0),(LARGEUR-271.118*cos(pi/6),271.118*sin(pi/6))))
+    image.write(ligne((LARGEUR-B,HAUTEUR),(LARGEUR-B-200.982*cos(pi/3),HAUTEUR-200.982*sin(pi/3))))
    
 
    
