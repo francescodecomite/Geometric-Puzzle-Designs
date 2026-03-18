@@ -80,7 +80,7 @@ if __name__=="__main__":
     # rectangle interieur (bords droits)
     decalx+=ep
     decaly=ep
-    image.write(rectangle(largeur=grandCote,hauteur=grandCote,rx=0,ry=0,couleur="blue"))
+    image.write(rectangle(largeur=grandCote,hauteur=grandCote,rx=0,ry=0))
    
 
     # toutes les lignes
