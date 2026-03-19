@@ -20,7 +20,7 @@ def debut(c=TAILLE):
     entete="<svg viewBox=\"0 0 "+str(2*c)+" "+str(2*c)+"\" xmlns=\"http://www.w3.org/2000/svg\">\n"
     pied="</svg>\n"
     # Le nom du fichier SVG, 
-    image=open("cruizer.svg","w")
+    image=open("cruiser.svg","w")
     image.write(entete)
     return image
 
